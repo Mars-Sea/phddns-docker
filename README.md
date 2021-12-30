@@ -1,6 +1,6 @@
 # phddns-docker
 ### 花生壳内网穿透 docker版本
-目前已经更新到官网最新版本 5.1.0
+目前已经更新到官网最新版本 5.2.0
 
 1. 使用方法
 ``` 
@@ -10,7 +10,7 @@ docker run -it --net=host --name phddns mars119/phddns
 2. 运行完就能看见配置信息
 ```
  +--------------------------------------------------+
- |             Oray PeanutHull Linux 5.1.0          |
+ |             Oray PeanutHull Linux 5.2.0          |
  +--------------------------------------------------+
  |  SN: xxxxxxxxxxxxxxx    Default password: admin  |
  +--------------------------------------------------+
