@@ -4,7 +4,7 @@ MAINTAINER mars119<f1195751600@gmail.com>
 
 RUN apt update
 
-RUN apt -y install wget net-tools psmisc apt-get install lsb-release && apt autoclean
+RUN apt -y install wget net-tools psmisc lsb-release && apt autoclean
 
 ENV WORKPATH /var/log/phddns/
 
