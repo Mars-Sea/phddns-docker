@@ -1,12 +1,15 @@
 FROM ubuntu:18.04
+
 MAINTAINER mars119<f1195751600@gmail.com>
 
-ENV WORKPATH /usr/phddns
+RUN apt update
+
+RUN apt -y install wget net-tools psmisc apt-get install lsb-release && apt autoclean
+
+ENV WORKPATH /var/log/phddns/
 
 WORKDIR $WORKPATH
 
-COPY *.deb ./
+ADD https://down.oray.com/hsk/linux/phddns_5.2.0_amd64.deb phddns_5.2.0_amd64.deb
 
-RUN apt update
-RUN apt install wget -y
-CMD  dpkg -i *.deb && /bin/bash
+CMD : > /var/log/phddns/phtunnel.log && dpkg -i *.deb && tail -f /var/log/phddns/*.log
