@@ -7,10 +7,10 @@ name: Docker
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "patch-.*" ]
     tags:     [ 'v*.*.*' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "patch-.*"  ]
 
 env:
   # Use docker.io for Docker Hub if empty
