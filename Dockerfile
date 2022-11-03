@@ -12,4 +12,4 @@ WORKDIR $WORKPATH
 
 ADD https://down.oray.com/hsk/linux/phddns_5.2.0_amd64.deb phddns_5.2.0_amd64.deb
 
-CMD : > /var/log/phddns/phtunnel.log && dpkg -i *.deb && tail -f /var/log/phddns/*.log
+CMD dpkg -i *.deb && tail -q -n 10 -f /var/log/phddns/*.log
