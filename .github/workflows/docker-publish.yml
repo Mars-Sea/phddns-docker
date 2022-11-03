@@ -31,14 +31,17 @@ jobs:
         id: set_image_name
         run: |
           if [[ -z "${{ secrets.REGISTRY_USERNAME }}" ]];then
+
             echo '
                 请在 Settings > secrets > Actions 中添加 REGISTRY_USERNAME, REGISTRY_TOKEN
                 https://github.com/docker/login-action#docker-hub
                 https://docs.docker.com/docker-hub/access-tokens/
             '
-            if [[ ${{ github.event_name }} != 'pull_request' }}  ]];then
+
+            if [[ "${{ github.event_name }}" != 'pull_request' }}  ]];then
                 exit 1
             fi
+
             owner=${{ github.repository_owner }}
             if [[ "${owner}" == "Mars-Sea" ]]; then
                 IMAGE_NAME="mars119/phddns";
@@ -120,7 +123,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=inline
           cache-to: type=registry,ref=${{ steps.set_image_name.outputs.IMAGE_NAME }}:buildcache,mode=max
-          
+
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
       # repository is public to avoid leaking data.  If you would like to publish
