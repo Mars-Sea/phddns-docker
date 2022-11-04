@@ -109,7 +109,7 @@ jobs:
       - name: Test
         run: |
           docker run -d --name phddns ${{ env.REGISTRY }}/${{ steps.set_image_name.outputs.IMAGE_NAME }}:test 
-          docker exec phddns phddns status
+          docker exec phddns /usr/bin/phddns status
           docker rm -f phddns
 
       # Build and push Docker image with Buildx (don't push on PR)
